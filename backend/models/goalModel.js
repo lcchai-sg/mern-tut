@@ -4,16 +4,21 @@ const goalSchema = mongoose.Schema(
     {
         title: {
             type: String,
-            required: [true, "Enter title of the goal"]
+            required: [true, "Enter title of the goal"],
         },
         description: {
             type: String,
-            required: [true, "Enter description of the goal"]
-        }
+            required: [true, "Enter description of the goal"],
+        },
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: "User",
+        },
     },
     {
-        timestamps: true
+        timestamps: true,
     }
-)
+);
 
-module.exports = mongoose.model('Goal', goalSchema);
+module.exports = mongoose.model("Goal", goalSchema);
